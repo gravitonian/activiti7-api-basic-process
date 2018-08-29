@@ -13,11 +13,11 @@
     <startEvent id="startEvent1">
     </startEvent>
     <userTask id="sid-1E793C09-B9C7-498E-B60F-34BEB6DF64F1" name="User Task 1">
-        <potentialOwner>
-            <resourceAssignmentExpression>
-                <formalExpression>testuser@example.com</formalExpression>
-            </resourceAssignmentExpression>
-        </potentialOwner>
+      <humanPerformer>
+        <resourceAssignmentExpression>
+          <formalExpression>testuser@example.com</formalExpression>
+        </resourceAssignmentExpression>
+      </humanPerformer>
 	</userTask>
 	<serviceTask id="sid-A3FF57A7-204C-4BD5-AB3E-9A72CBA0EF57" name="Service Task 1" implementation="helloWorld">
 	</serviceTask>    

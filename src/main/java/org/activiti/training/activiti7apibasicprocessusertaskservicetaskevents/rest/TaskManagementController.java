@@ -1,5 +1,6 @@
 package org.activiti.training.activiti7apibasicprocessusertaskservicetaskevents.rest;
 
+import org.activiti.runtime.api.TaskAdminRuntime;
 import org.activiti.runtime.api.TaskRuntime;
 import org.activiti.runtime.api.model.Task;
 import org.activiti.runtime.api.query.Page;
@@ -23,10 +24,29 @@ public class TaskManagementController {
     @Autowired
     private TaskRuntime taskRuntime;
 
-    @GetMapping("/tasks")
-    public List<Task> getTasks() {
+    @Autowired
+    private TaskAdminRuntime taskAdminRuntime;
+
+    @GetMapping("/my-tasks")
+    public List<Task> getMyTasks() {
         Page<Task> tasks = taskRuntime.tasks(Pageable.of(0, 10));
-        logger.info("> Available Tasks: " + tasks.getTotalItems());
+        logger.info("> My Available Tasks: " + tasks.getTotalItems());
+
+        for (Task task : tasks.getContent()) {
+            logger.info("\t > My User Task: " + task);
+        }
+
+        return tasks.getContent();
+    }
+
+    /**
+     * Need to be logged in as admin to use this call
+     * @return
+     */
+    @GetMapping("/all-tasks")
+    public List<Task> getAllTasks() {
+        Page<Task> tasks = taskAdminRuntime.tasks(Pageable.of(0, 10));
+        logger.info("> All Available Tasks: " + tasks.getTotalItems());
 
         for (Task task : tasks.getContent()) {
             logger.info("\t > User Task: " + task);
