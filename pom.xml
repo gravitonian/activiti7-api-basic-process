@@ -27,9 +27,9 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>org.activiti</groupId>
-				<artifactId>activiti-dependencies</artifactId>
-				<version>7.0.0.Beta1</version>
+				<groupId>org.activiti.cloud.dependencies</groupId>
+				<artifactId>activiti-cloud-dependencies</artifactId>
+				<version>7.0.0.Beta3</version>
 				<scope>import</scope>
 				<type>pom</type>
 			</dependency>
