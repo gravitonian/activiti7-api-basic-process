@@ -24,9 +24,9 @@ import org.springframework.stereotype.Service;
 /**
  * Implementation of Service Task as connector
  */
-@Service(value = "helloWorld")
-public class HelloWorldConnector implements Connector {
-    private Logger logger = LoggerFactory.getLogger(HelloWorldConnector.class);
+@Service(value = "serviceTask1Impl")
+public class ServiceTask1Connector implements Connector {
+    private Logger logger = LoggerFactory.getLogger(ServiceTask1Connector.class);
 
     public IntegrationContext execute(IntegrationContext integrationContext) {
         logger.info("Some service task logic... [processInstanceId=" + integrationContext.getProcessInstanceId() + "]");

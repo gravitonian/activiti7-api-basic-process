@@ -37,7 +37,7 @@ import java.util.stream.Collectors;
 
 /**
  * Set up some users and groups that we can use when interacting with the process engine API.
- * We use the testuser@example.com in the process definition so we need to include this user.
+ * We use the testuser in the process definition so we need to include this user.
  *
  * We also enable Web security so we can build a simple ReST API that uses the Process Engine Java API. We need
  * to be authenticated with a user that has the role ROLE_ACTIVITI_USER to be able to use the API.
@@ -61,7 +61,7 @@ public class Activiti7ApplicationConfiguration  extends WebSecurityConfigurerAda
 
         String[][] usersGroupsAndRoles = {
                 {"mbergljung", "1234", "ROLE_ACTIVITI_USER", "GROUP_activitiTraining"},
-                {"testuser@example.com", "1234", "ROLE_ACTIVITI_USER", "GROUP_activitiTraining"},
+                {"testuser", "1234", "ROLE_ACTIVITI_USER", "GROUP_activitiTraining"},
                 {"system", "1234", "ROLE_ACTIVITI_USER"},
                 {"admin", "1234", "ROLE_ACTIVITI_ADMIN"},
         };

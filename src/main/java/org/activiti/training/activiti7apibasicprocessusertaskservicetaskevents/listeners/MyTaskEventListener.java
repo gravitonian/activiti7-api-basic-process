@@ -16,6 +16,7 @@
 package org.activiti.training.activiti7apibasicprocessusertaskservicetaskevents.listeners;
 
 import org.activiti.api.model.shared.event.RuntimeEvent;
+import org.activiti.api.task.model.Task;
 import org.activiti.api.task.runtime.events.*;
 import org.activiti.api.task.runtime.events.listener.TaskRuntimeEventListener;
 import org.slf4j.Logger;
@@ -31,9 +32,11 @@ public class MyTaskEventListener implements TaskRuntimeEventListener {
 
         if (runtimeEvent instanceof TaskActivatedEvent)
             logger.info("Do something, task is activated: " + runtimeEvent.toString());
-        else if (runtimeEvent instanceof TaskAssignedEvent)
-            logger.info("Do something, task is assigned: " + runtimeEvent.toString());
-        else if (runtimeEvent instanceof TaskCancelledEvent)
+        else if (runtimeEvent instanceof TaskAssignedEvent) {
+            TaskAssignedEvent taskEvent = (TaskAssignedEvent)runtimeEvent;
+            Task task = taskEvent.getEntity();
+            logger.info("Do something, task is assigned: " + task.toString());
+        } else if (runtimeEvent instanceof TaskCancelledEvent)
             logger.info("Do something, task is cancelled: " + runtimeEvent.toString());
         else if (runtimeEvent instanceof TaskCompletedEvent)
             logger.info("Do something, task is completed: " + runtimeEvent.toString());
